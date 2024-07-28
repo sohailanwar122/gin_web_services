@@ -1,9 +1,11 @@
 package main
 
 import (
-    "net/http"
-    "github.com/gin-gonic/gin"
+	"net/http"
+	// "os"
+	"github.com/gin-gonic/gin"
 )
+
 // album represents data about a record album.
 type album struct {
     ID     string  `json:"id"`
@@ -89,5 +91,11 @@ func main() {
 	router.GET("/albums/:id", getAlbumByID)
 	router.DELETE("/albums/:id", deleAlumById)
 	
-    router.Run("localhost:8080")
+     router.Run("localhost:8080")
+	 // Use the PORT environment variable provided by Heroku
+	//  port := os.Getenv("PORT")
+	//  if port == "" {
+	// 	 port = "8080" // Default to port 8080 if not set
+	//  }
+	//  router.Run(":" + port)
 }
